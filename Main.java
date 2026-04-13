@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        try(Scanner nameScanner = new Scanner(System.in); Scanner ageScanner = new Scanner(System.in)) {
+        try(Scanner scanner = new Scanner(System.in)) {
             System.out.println("What is your name");
-            String name = nameScanner.nextLine();
+            String name = scanner.nextLine();
             
             System.out.println("How old are you");
-            Integer age = ageScanner.nextInt();
+            Integer age = scanner.nextInt();
 
             System.out.println("Hi " + name + "! You will turn " + (age+1) + " next year.");
         } catch (Exception e) {
