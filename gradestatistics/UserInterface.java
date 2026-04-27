@@ -1,4 +1,4 @@
-package java_assignments.grade_statistics;
+package javaassignments.gradestatistics;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -24,14 +24,14 @@ public class UserInterface {
                 System.out.println("Enter a number between 1 and 100 (or -1 to exit):");
                 int number = this.scanner.nextInt();
 
-                if(this.endProgram(number)) {
+                if(this.end(number)) {
                     break;
                 }
 
-                if (this.validScore(number)) {
+                if (this.checkValidScore(number)) {
                     System.out.println("You entered: " + number);
                     this.addScore(number);
-                    this.addPassingGrade(number);
+                    this.addPassingGradeScore(number);
                 } else {
                     System.out.println("Invalid input. Please enter a valid number between 1 and 100.");
                 }
@@ -44,11 +44,11 @@ public class UserInterface {
         }
     }
 
-    public boolean endProgram(int score) {
+    public boolean end(int score) {
         return score == -1 ? true : false;
     }
 
-    public boolean validScore(int score) {
+    public boolean checkValidScore(int score) {
         return score >= 1 && score <= 100;
     }
 
@@ -65,7 +65,7 @@ public class UserInterface {
         }
     }
 
-    public void addPassingGrade(int score) {
+    public void addPassingGradeScore(int score) {
         if (score >= 50) {
             this.totalPassingGradeScore += score;
             this.numberOfPassingGrades++;
