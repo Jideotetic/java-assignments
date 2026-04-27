@@ -1,4 +1,4 @@
-package java_assignments;
+package java_assignments.grade_statistics;
 
 import java.util.Scanner;
 

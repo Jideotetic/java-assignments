@@ -1,4 +1,4 @@
-package java_assignments;
+package java_assignments.grade_statistics;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -57,7 +57,7 @@ public class UserInterface {
         this.numberOfCourses++;
     }
 
-     public void printAverage() {
+    public void printAverage() {
         if (this.numberOfCourses > 0) {
             System.out.println("Point average (all): " + this.totalScore / this.numberOfCourses);
         } else {
@@ -72,7 +72,7 @@ public class UserInterface {
         }
     }
 
-   public void printPassingAverage() {
+    public void printPassingAverage() {
        if (this.numberOfPassingGrades > 0) {
            System.out.println("Point average (passing): " + this.totalPassingGradeScore / this.numberOfPassingGrades);
        } else {
