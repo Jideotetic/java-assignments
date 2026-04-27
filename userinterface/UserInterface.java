@@ -1,15 +1,14 @@
 package javaassignments.userinterface;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
     private Scanner scanner;
-    private ArrayList<String> words;
+    private WordSet wordSet;
 
-    public UserInterface(Scanner scanner) {
+    public UserInterface(Scanner scanner, WordSet wordSet) {
         this.scanner = scanner;
-        this.words = new ArrayList<>();
+        this.wordSet = wordSet;
     }
 
     public void start() {
@@ -21,13 +20,13 @@ public class UserInterface {
                 break;
             }
 
-            this.words.add(word);
+            this.wordSet.add(word);
         }
 
         System.out.println("You gave the same word twice!");
     }
 
     public boolean alreadyEntered(String word) {
-        return this.words.contains(word);
+        return this.wordSet.contains(word);
     }
 }
