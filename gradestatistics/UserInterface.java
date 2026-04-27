@@ -5,17 +5,11 @@ import java.util.Scanner;
 
 public class UserInterface {
     private Scanner scanner;
-    private int numberOfCourses;
-    private int totalScore;
-    private int totalPassingGradeScore;
-    private int numberOfPassingGrades;
+    private Grades grades;
 
-    public UserInterface(Scanner scanner) {
+    public UserInterface(Scanner scanner, Grades grades) {
         this.scanner = scanner;
-        this.numberOfCourses = 0;
-        this.totalScore = 0;
-        this.totalPassingGradeScore = 0;
-        this.numberOfPassingGrades = 0;
+        this.grades = grades;
     }
 
     public void start() {
@@ -28,56 +22,24 @@ public class UserInterface {
                     break;
                 }
 
-                if (this.checkValidScore(number)) {
+                if (this.grades.checkValidScore(number)) {
                     System.out.println("You entered: " + number);
-                    this.addScore(number);
-                    this.addPassingGradeScore(number);
+                    this.grades.addScore(number);
+                    this.grades.addPassingGradeScore(number);
                 } else {
                     System.out.println("Invalid input. Please enter a valid number between 1 and 100.");
                 }
             }
 
-            this.printAverage();
-            this.printPassingAverage();
+            this.grades.printAverage();
+            this.grades.printPassingAverage();
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please enter a valid number between 1 and 100.");
         }
     }
 
-    public boolean end(int score) {
+     public boolean end(int score) {
         return score == -1 ? true : false;
     }
-
-    public boolean checkValidScore(int score) {
-        return score >= 1 && score <= 100;
-    }
-
-    public void addScore(int score) {
-        this.totalScore += score;
-        this.numberOfCourses++;
-    }
-
-    public void printAverage() {
-        if (this.numberOfCourses > 0) {
-            System.out.println("Point average (all): " + this.totalScore / this.numberOfCourses);
-        } else {
-            System.out.println("No scores entered.");
-        }
-    }
-
-    public void addPassingGradeScore(int score) {
-        if (score >= 50) {
-            this.totalPassingGradeScore += score;
-            this.numberOfPassingGrades++;
-        }
-    }
-
-    public void printPassingAverage() {
-       if (this.numberOfPassingGrades > 0) {
-           System.out.println("Point average (passing): " + this.totalPassingGradeScore / this.numberOfPassingGrades);
-       } else {
-           System.out.println("Point average (passing): -");
-       }
-   }
 
 }

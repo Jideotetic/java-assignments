@@ -16,7 +16,7 @@ public class UserInterface {
             System.out.println("Enter a word");
             String word = this.scanner.nextLine();
 
-            if (this.alreadyEntered(word)) {
+            if (this.wordSet.contains(word)) {
                 break;
             }
 
@@ -24,9 +24,5 @@ public class UserInterface {
         }
 
         System.out.println("You gave the same word twice!");
-    }
-
-    public boolean alreadyEntered(String word) {
-        return this.wordSet.contains(word);
     }
 }
